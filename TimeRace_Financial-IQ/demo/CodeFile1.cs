@@ -10,6 +10,7 @@ using System.Data.Common;
 
 using System.Collections.Generic;
 using System.Diagnostics;//stop Watch
+using System.Linq;
 public class codeFile1
 {
     public void test1()
@@ -59,11 +60,11 @@ public class codeFile1
 
         //Dictionary<int, String> dict = new Dictionary<int, String>();
         //DictionaryExtensionMethodClass.TryAdd(dict, 1, "ZhangSan"); 
-        //DictionaryExtensionMethodClass.AddOrPeplace(dict, 3, "WangWu"); 
+        //DictionaryExtensionMethodClass.AddOrPeplace(dict, 3, "WangWu");  
 
-      
+
     }
-
+     
     //pack:unpack 5.7 : 1
     public void PackUnPack()
     {
@@ -125,7 +126,32 @@ public class codeFile1
         watch.Stop();
         Console.WriteLine(" no执行装箱---" + watch.ElapsedMilliseconds);
         Console.ReadLine();
+
+        //非泛型集合，装箱
+        ArrayList array = new ArrayList();
+        array.Add(1);
+
+        //泛型集合，不装箱
+        List<int> list = new List<int>();
+        list.Add(1);
     }
+
+    #region no_pack
+
+    //非泛型集合，装箱
+    public static void TestMethod(int s)
+    {
+        s.GetType();//这是obj的方法
+    }
+     
+    //泛型集合，不装箱
+    public static void TestMethod2<T>(T t)
+    {
+        t.GetType();
+    }
+
+    #endregion
+  
 
     public void test_charbyteint()
     {
