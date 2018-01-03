@@ -52,21 +52,27 @@
             });
         }
 
-         
+
         XmlHttp = {
-            ExecuteUrl : function (url) {
+            GetSQLXML: function (sql) {
+                sendXml = "<Execute sql=" + sql + " />";
+                var xmlHttp = this.Request("POST", 'HandlerFactory.ashx?action=sql', sendXml);
+                return xmlHttp.responseText;
+            },
+
+            ExecuteUrl: function (url) {
                 xmlHttp = this.Request("GET", url);
                 return xmlHttp.responseText;
-            } ,
-        
-            ExecuteUrl_WithXml : function (url, sendXml) { //sendXml = "<Execute TagName='Test' rtype='M' />"  
+            },
+
+            ExecuteUrl_WithXml: function (url, sendXml) { //sendXml = "<Execute TagName='Test' rtype='M' />"  
                 xmlHttp = this.Request("POST", url, sendXml);
                 return xmlHttp.responseText;
             },
 
 
             //封装XmlHttp请求支持POST,GET方法；同步与异步调用  callback参数为异步调用必传参数  
-            Request : function (method, url, data, callback) {
+            Request: function (method, url, data, callback) {
                 var bAsync = false;
                 if (callback != undefined && callback != null) bAsync = true;
                 var oXmlHttp = this.Create();
@@ -87,7 +93,7 @@
             },
 
             //创建XmlHttpRequest对象
-            Create : function () {
+            Create: function () {
                 var xmlHttp = null;
                 try {
                     if (window.ActiveXObject) {
@@ -103,13 +109,13 @@
                 } catch (e) { }
                 return xmlHttp;
             }
-    
+
         }
     </script>
     
     <script language="javascript" type="text/javascript" src="HandlerFactory.ashx?action=_test"></script>
 </head>
 <body>
-  <input type="button" value="btn1" />
+  <input type="button" value="btn1" onclick="test2();" />
 </body>
 </html>
