@@ -70,20 +70,29 @@ namespace DataBase
     public class SqlServer_DBHelper
     {
         /// <summary>
-        /// Sql数据库连接字符串
+        /// Sql数据库连接字符串,从Web.config读取连接字符串
         /// </summary>
-        public string sqlconnection_string = "";
+        public string sqlconnection_string = ConfigurationManager.AppSettings["sqlconnection"];
          
-
-        public DataTable GetDataTable(string sql, string tablename = "My_Table")
+        public void InitSqlConnection()
         {
-            DataSet ds = null;
+            SqlConnectionStringBuilder sconsb = new SqlConnectionStringBuilder();
+            sconsb.DataSource = "localhost";
+            sconsb.IntegratedSecurity = true;
+            sconsb.InitialCatalog = "core";
+            sqlconnection_string = sconsb.ConnectionString; 
+        }
+
+        public DataTable GetDataTable(string sql)
+        {
+            //DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
             SqlConnection sqlConnection = new SqlConnection(sqlconnection_string);
             sqlConnection.Open(); 
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sql, sqlConnection);
-            sqlAdapter.Fill(ds, tablename); 
+            sqlAdapter.Fill(dt); 
             sqlConnection.Close();
-            return ds.Tables[tablename];
+            return dt;
         }
 
         public int ExecuteNonQuery(string sql)
@@ -97,17 +106,21 @@ namespace DataBase
         }
     }
 
+
+    /// <summary>
+    /// sqlserver连接字符串的拼接程序,因为有自带的SqlConnectionStringBuilder,故而禁用
+    /// </summary>
     public class SqlServer_Connection
     {
         /// <summary>
         /// 数据库所在的远程主机,默认为本机
         /// </summary>
-        public string host="localhost";
+        public string host ="localhost";
 
         /// <summary>
         /// 数据库库名
         /// </summary>
-        public string name;
+        public string InitialCatalog;
 
         /// <summary>
         /// 是否采用本机认证,如果开启则不使用用户名\密码,默认为开启
@@ -130,7 +143,7 @@ namespace DataBase
         /// </summary> 
         public string GetConnectionString()
         {
-            string str = "Data Source = " + host + ";Initial Catalog = " + name + ";";
+            string str = "Data Source = " + host + ";Initial Catalog = " + InitialCatalog + ";";
             if (SelfDeny)
                 str += "Integrated Security=True;";
             else
