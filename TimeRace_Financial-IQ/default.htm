@@ -2,9 +2,114 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-    <script language="javascript" type="text/javascript" src="HandlerFactory.ashx?action=test"></script>
+    <script src="Js/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+        var ashxUrl = "HandlerFactory.ashx?action=";
+        var _u = "HandlerFactory.ashx?action=test";
+
+        function UseAshx(action) {
+            var url = ashxUrl + action;
+            xmlReq.open("get", url, true);
+            xmlReq.onreadystatechange = callBack;
+            xmlReq.send(url);
+        }
+        function callBack(a, e, i) {
+            alert(a + '|' + e + '|' + i);
+            debugger;
+        }
+        function test(username, password) {
+            $.ajax({
+                url: 'HandlerFactory.ashx?action=test',
+                type: 'POST',
+                data: { 'username': username, 'password': password },
+                //dataType: 'json',
+                timeout: 50000,
+                //contentType: 'application/json;charset=utf-8',  
+                success: function (response) {
+                    //var res = response.message;
+                    alert(response);
+                    eval(response);
+                },
+                error: function (err) {
+                    alert("执行失败" + err ? err : '_empty_text_');
+                }
+            });
+        }
+        function test2(url, data) {
+            url = url ? url : 'HandlerFactory.ashx?action=test';
+            $.ajax({
+                url: url, // 'HandlerFactory.ashx?action=test',
+                type: 'POST',
+                data: data, //{ 'username': username, 'password': password },
+                //dataType: 'json',
+                timeout: 50000,
+                success: function (response) {
+                    return response;
+                },
+                error: function (err) {
+                    alert("执行失败" + (err ? err : ''));
+                }
+            });
+        }
+
+         
+        XmlHttp = {
+            ExecuteUrl : function (url) {
+                xmlHttp = this.Request("GET", url);
+                return xmlHttp.responseText;
+            } ,
+        
+            ExecuteUrl_WithXml : function (url, sendXml) { //sendXml = "<Execute TagName='Test' rtype='M' />"  
+                xmlHttp = this.Request("POST", url, sendXml);
+                return xmlHttp.responseText;
+            },
+
+
+            //封装XmlHttp请求支持POST,GET方法；同步与异步调用  callback参数为异步调用必传参数  
+            Request : function (method, url, data, callback) {
+                var bAsync = false;
+                if (callback != undefined && callback != null) bAsync = true;
+                var oXmlHttp = this.Create();
+
+                oXmlHttp.open(method, url, bAsync);
+                if (bAsync) oXmlHttp.onreadystatechange = function () {
+                    if (oXmlHttp.readyState == 4 && oXmlHttp.status == 200)
+                        callback(oXmlHttp.responseText);
+                };
+
+                try {
+                    oXmlHttp.send(data);
+                }
+                catch (e) {
+                    alert("请求异常:" + e.Message + "\nUrl:" + url + "\n发送数据:" + data);
+                }
+                return oXmlHttp;
+            },
+
+            //创建XmlHttpRequest对象
+            Create : function () {
+                var xmlHttp = null;
+                try {
+                    if (window.ActiveXObject) {
+                        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                        //确定方法后改为懒函数
+                        this.Create = function () { return new ActiveXObject("Microsoft.XMLHTTP"); };
+                    }
+                    else if (window.XMLHttpRequest) {
+                        xmlHttp = new XMLHttpRequest();
+                        //确定方法后改为懒函数
+                        this.Create = function () { return new XMLHttpRequest(); };
+                    }
+                } catch (e) { }
+                return xmlHttp;
+            }
+    
+        }
+    </script>
+    
+    <script language="javascript" type="text/javascript" src="HandlerFactory.ashx?action=_test"></script>
 </head>
 <body>
-
+  <input type="button" value="btn1" />
 </body>
 </html>
