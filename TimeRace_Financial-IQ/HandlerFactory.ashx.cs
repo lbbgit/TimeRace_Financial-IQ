@@ -41,12 +41,21 @@ namespace TimeRace_Financial_IQ
         private string sql(HttpContext context)
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load(context.Request.InputStream);
             string sql = "";
-            DataTable dt=sqlserver_DbHelper.GetDataTable(sql);
-            //System.IO.Stream stream = new System.IO.Stream();
-            //dt.WriteXml(stream, false);
-            return "";
+            try
+            {
+                doc.Load(context.Request.InputStream);
+                string strSQL = doc.DocumentElement.GetAttribute("SQL").Trim();
+                string rtype = doc.DocumentElement.GetAttribute("rtype");
+                DataTable dt = sqlserver_DbHelper.GetDataTable(sql);
+                //System.IO.Stream stream = new System.IO.Stream();
+                //dt.WriteXml(stream, false);
+                return "u run sql";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
         }
 
         public bool IsReusable

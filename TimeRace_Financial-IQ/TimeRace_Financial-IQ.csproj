@@ -55,6 +55,8 @@
     <Content Include="Image\D.png" />
     <Content Include="Image\hls.jpg" />
     <Content Include="Image\minhead.jpg" />
+    <Content Include="Js\Common.js" />
+    <Content Include="Js\jquery-1.7.1.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -66,8 +68,10 @@
   <ItemGroup>
     <Compile Include="demo\CodeFile1.cs" />
     <Compile Include="demo\CodeFile2.cs" />
+    <Compile Include="demo\DataTableTools.cs" />
     <Compile Include="demo\DBHelper.cs" />
     <Compile Include="demo\linq2.cs" />
+    <Compile Include="demo\MemoryHelper.cs" />
     <Compile Include="demo\SqlServerHelper.cs" />
     <Compile Include="HandlerFactory.ashx.cs">
       <DependentUpon>HandlerFactory.ashx</DependentUpon>
@@ -79,7 +83,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="demo\bak\" />
-    <Folder Include="Js\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
