@@ -43,15 +43,24 @@ namespace TimeRace_Financial_IQ
         private string UnNullFolder_View(HttpContext context)
         {
             string folder = context.Request.QueryString["Folder"];
-            return FolderUnNull.NuNull(folder, false);
+            return ListToString(FolderUnNull.NuNull(folder, false));
+            
         }
 
         private string UnNullFolder(HttpContext context)
         {
             string folder = context.Request.QueryString["Folder"];
-            return FolderUnNull.NuNull(folder);
+            return ListToString(FolderUnNull.NuNull(folder));
         }
-
+        private string ListToString(List<string> a)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (string s in a)
+            {
+                sb.Append(a).Append(',');
+            }
+            return sb.ToString();
+        }
         private string sql(HttpContext context)
         {
             XmlDocument doc = new XmlDocument();

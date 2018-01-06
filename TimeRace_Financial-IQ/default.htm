@@ -70,6 +70,10 @@
             eval(js);
         }
 
+        function e(a) {
+            return encodeURI(a);
+        }
+
         XmlHttp = {
             GetSQLXML: function (sql) {
                 sendXml = "<Execute sql='" + sql + "' />";
@@ -137,7 +141,7 @@
    
 
   <input type="text" id="Text0" value="D:\app\Mud_Nitan\trunk\nitan4" />
-  <input type="text" id="Text1" value=@"D:\app\Mud_Nitan\trunk\nitan4" />
+  <input type="text" id="Text1" value="D:\app\Mud_Nitan\trunk\nitan6" />
   <input type="text" id="Text2" value="" />
   <input type="text" id="Text3" value="" />
   <input type="text" id="Text4" value="" /> 
