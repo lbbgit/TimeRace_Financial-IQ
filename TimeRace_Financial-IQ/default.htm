@@ -7,6 +7,8 @@
     <script language="javascript" type="text/javascript">
         var ashxUrl = "HandlerFactory.ashx?action=";
         var _u = "HandlerFactory.ashx?action=test";
+        var cv = "HandlerFactory.ashx?action=UnNullFolderView&Folder=";
+        var c = "HandlerFactory.ashx?action=UnNullFolder&Folder="; 
 
         function UseAshx(action) {
             var url = ashxUrl + action;
@@ -52,7 +54,21 @@
                 }
             });
         }
+        function dirView(folderpath, mend,unencode) {
+            var u = (mend ? c : cv) + (unencode? folderpath : encodeURI(folderpath));
+            XmlHttp.ExecuteUrl(u);
+        }
 
+        function Run() {
+            var _js = $("#txtFormat").val();
+            var args = $("input[id^=Text]"); // <input type="text" id="Text0"
+            var js = _js;
+            for (var i = 0; i < 5; i++) {
+                var value = args[i].value; 
+                js = js.replace('{'+i+'}',encodeURI(value));
+            };
+            eval(js);
+        }
 
         XmlHttp = {
             GetSQLXML: function (sql) {
@@ -118,5 +134,16 @@
 </head>
 <body>
   <input type="button" value="btn1" onclick="test2();" />
+   
+
+  <input type="text" id="Text0" value="D:\app\Mud_Nitan\trunk\nitan4" />
+  <input type="text" id="Text1" value=@"D:\app\Mud_Nitan\trunk\nitan4" />
+  <input type="text" id="Text2" value="" />
+  <input type="text" id="Text3" value="" />
+  <input type="text" id="Text4" value="" /> 
+  <input type="text" id="Text5" value="" />
+  
+  <textarea id="txtFormat" rows="3" cols="20" >dirView('{0}',null,1)</textarea>
+  <input type="button" value="XmlHttp.ExecuteUrl('{0}',null,1)" onclick="Run();" />
 </body>
 </html>

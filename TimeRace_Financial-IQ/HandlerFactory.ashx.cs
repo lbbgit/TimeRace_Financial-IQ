@@ -26,6 +26,8 @@ namespace TimeRace_Financial_IQ
             {
                 case "test": result = test(); break;
                 case "sql": result = sql(context); break;
+                case "UnNullFolder": result = UnNullFolder(context); break;
+                case "UnNullFolderView": result = UnNullFolder_View(context); break;
             }
             context.Response.Write(result);
         }
@@ -36,6 +38,18 @@ namespace TimeRace_Financial_IQ
             DataTable dt = sqlserver_DbHelper.GetDataTable("select * from dual");
             string result = Convert.ToString(dt.Rows[0][0]);
             return "alert('" + result + "')";
+        }
+
+        private string UnNullFolder_View(HttpContext context)
+        {
+            string folder = context.Request.QueryString["Folder"];
+            return FolderUnNull.NuNull(folder, false);
+        }
+
+        private string UnNullFolder(HttpContext context)
+        {
+            string folder = context.Request.QueryString["Folder"];
+            return FolderUnNull.NuNull(folder);
         }
 
         private string sql(HttpContext context)
@@ -57,6 +71,7 @@ namespace TimeRace_Financial_IQ
                 return e.Message;
             }
         }
+         
 
         public bool IsReusable
         {

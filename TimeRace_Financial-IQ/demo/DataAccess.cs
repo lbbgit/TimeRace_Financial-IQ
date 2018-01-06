@@ -7,7 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public interface IBase{}
-public sealed class DataAccess<T> where T : IBase
+public sealed class DataAccess<T> //where T : Object //IBase
 {
     private static readonly string dcPath = "";
     private static readonly string nameSpace = "";
@@ -52,5 +52,11 @@ public sealed class DataAccess<T> where T : IBase
 
         return devs;
     }
-         
+
+    public static string ToString(T obj)  // .ToString() Convert.ToString()
+    {
+        if (obj == null)
+            return "";
+        return obj.ToString(); 
+    }    
 }

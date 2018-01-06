@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -51,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="default.htm" />
+    <Content Include="demo\demo1.asmx" />
     <Content Include="demo\PartSplitter.htm" />
     <Content Include="Image\D.png" />
     <Content Include="Image\hls.jpg" />
@@ -68,8 +70,16 @@
   <ItemGroup>
     <Compile Include="demo\CodeFile1.cs" />
     <Compile Include="demo\CodeFile2.cs" />
+    <Compile Include="demo\CodeFile3.cs" />
+    <Compile Include="demo\DataAccess.cs" />
     <Compile Include="demo\DataTableTools.cs" />
     <Compile Include="demo\DBHelper.cs" />
+    <Compile Include="demo\demo1.asmx.cs">
+      <DependentUpon>demo1.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="demo\FolderUnNull.cs" />
+    <Compile Include="demo\DllInject.cs" />
     <Compile Include="demo\linq2.cs" />
     <Compile Include="demo\MemoryHelper.cs" />
     <Compile Include="demo\SqlServerHelper.cs" />
