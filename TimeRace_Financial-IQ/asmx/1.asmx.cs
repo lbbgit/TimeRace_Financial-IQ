@@ -53,8 +53,13 @@ namespace TimeRace_Financial_IQ.asmx
 
 
         [WebMethod(Description = "test1cs")]
-        public string test1cs()
+        public string test1cs(string method = "getTestTaskDetail", string url = @"http://localhost:15981/asmx/2.asmx")
         {
+            if (string.IsNullOrWhiteSpace(method))
+                method = "getTestTaskDetail";
+            if (string.IsNullOrWhiteSpace(url))
+                url = @"http://localhost:15981/asmx/2.asmx";
+
             //注意引用自定义代码
             //拼接的xml字符串，根据需求自行拼接
             string xmlRequest = "<root>" +
@@ -63,18 +68,20 @@ namespace TimeRace_Financial_IQ.asmx
                                               "<CardNo></CardNo>" +
                                               "<IDCardNo>" + "id001" + "</IDCardNo>" +
                                               "</root>";
+            string[] strs = new string[] { "_1_", "2", "3" };
             //转换字符为hash
             Hashtable htParms = new Hashtable
                 {
                     //多个参数可定义多个{}，中间用'，'隔开
-                    { "RequestXML", xmlRequest }
+                    { "p1", xmlRequest },
+                    { "p2", strs }
                 };
 
             string result = "";
             try
             {
                 //调用soap，返回字符串
-                result = WdFuncWsCaller.SoapWebServiceString(@"asmx\2.asmx", "getTestTaskDetail", htParms);
+                result = WdFuncWsCaller.SoapWebServiceString( url , method, htParms);
                 return result;
             }
             catch (Exception e)

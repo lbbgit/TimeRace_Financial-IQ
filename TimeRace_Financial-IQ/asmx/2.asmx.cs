@@ -32,5 +32,23 @@ namespace TimeRace_Financial_IQ.asmx
             string str = (testTaskID != null && testTaskID.Length > 0) ? testTaskID[0] : productProjectCode;
             return str;  
         }
+
+        [WebMethod(Description = "t0")]
+        public string t0()
+        {
+            return "t0";
+        }
+        [WebMethod(Description = "t1")]
+        public string t1(string p1)
+        {
+            return "t1" + p1;
+        }
+        [WebMethod(Description = "t2")]
+        public string t2(string p1, string[] p2)
+        {
+            if (p2 == null)
+                return "nuL";
+            return "t2" + p2[0];
+        }
     }
 }
