@@ -28,6 +28,8 @@ namespace TimeRace_Financial_IQ
                 case "sql": result = sql(context); break;
                 case "UnNullFolder": result = UnNullFolder(context); break;
                 case "UnNullFolderView": result = UnNullFolder_View(context); break;
+                case "UnNullFilesFolder": result = UnNullFilesFolder(context); break;
+                case "UnNullFilesFolderView": result = UnNullFilesFolder_View(context); break;
             }
             context.Response.Write(result);
         }
@@ -43,14 +45,24 @@ namespace TimeRace_Financial_IQ
         private string UnNullFolder_View(HttpContext context)
         {
             string folder = context.Request.QueryString["Folder"];
-            return ListToString(FolderUnNull.NuNull(folder, false));
-            
+            return ListToString(FolderUnNull.NuNull(folder, false)); 
         }
 
         private string UnNullFolder(HttpContext context)
         {
             string folder = context.Request.QueryString["Folder"];
             return ListToString(FolderUnNull.NuNull(folder));
+        }
+        private string UnNullFilesFolder_View(HttpContext context)
+        {
+            string folder = context.Request.QueryString["Folder"];
+            return ListToString(FolderUnNull.NuNullFiles(folder, false));
+        }
+
+        private string UnNullFilesFolder(HttpContext context)
+        {
+            string folder = context.Request.QueryString["Folder"];
+            return ListToString(FolderUnNull.NuNullFiles(folder));
         }
         private string ListToString(List<string> a)
         {

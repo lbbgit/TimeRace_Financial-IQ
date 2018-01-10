@@ -83,7 +83,7 @@ public class FolderUnNull
     public static void ClearNull(string folderpath, bool create_KeepFile = true, string keepFileName = ".gitignore")
     {
         if (create_KeepFile)
-            System.IO.File.Create(Path.Combine(folderpath, keepFileName), 0);
+            System.IO.File.Create(Path.Combine(folderpath, keepFileName));//,0 
     }
     public static string NuNull_old(string folderpath, bool create_KeepFile = true, string keepFileName = ".gitignore")
     {
@@ -111,5 +111,42 @@ public class FolderUnNull
         }
 
         return sb.ToString();
+    }
+
+
+
+    //简简单单,返璞归真,不能没有文件
+    public static List<string> NuNullFiles(string folderpath, bool create_KeepFile = true, string keepFileName = ".gitignore")
+    {
+        if (!System.IO.Directory.Exists(folderpath))
+            return null; 
+
+        if (string.IsNullOrWhiteSpace(keepFileName))
+            keepFileName = ".gitignore";
+         
+        List<string> emptyFolder = new List<string>();
+
+        string[] folders = System.IO.Directory.GetDirectories(folderpath, "*", SearchOption.AllDirectories);
+        //check sons
+        foreach (string folder in folders)
+        {
+            string[] files = System.IO.Directory.GetFiles(folder, "*", SearchOption.TopDirectoryOnly);
+            if (files.Length == 0)
+            {
+                if (create_KeepFile)
+                    ClearNull(folderpath, create_KeepFile, keepFileName);
+                emptyFolder.Add(folder);
+            }
+        }
+        //check self
+        string[] files_mine = System.IO.Directory.GetFiles(folderpath, "*", SearchOption.TopDirectoryOnly);
+        if (files_mine.Length == 0)
+        {
+            if (create_KeepFile)
+                ClearNull(folderpath, create_KeepFile, keepFileName);
+            emptyFolder.Add(folderpath);
+        }
+        
+        return emptyFolder; 
     }
 }

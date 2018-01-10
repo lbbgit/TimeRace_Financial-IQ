@@ -51,6 +51,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="asmx\1.asmx" />
+    <Content Include="asmx\2.asmx" />
     <Content Include="default.htm" />
     <Content Include="demo\demo1.asmx" />
     <Content Include="demo\PartSplitter.htm" />
@@ -68,6 +70,19 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="#\.cs" />
+    <Compile Include="asmx\1.ashx.cs">
+      <DependentUpon>1.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="asmx\1.asmx.cs">
+      <DependentUpon>1.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="asmx\1.cs" />
+    <Compile Include="asmx\2.asmx.cs">
+      <DependentUpon>2.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="demo\CodeFile1.cs" />
     <Compile Include="demo\CodeFile2.cs" />
     <Compile Include="demo\CodeFile3.cs" />
@@ -93,6 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="demo\bak\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="asmx\1.ashx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

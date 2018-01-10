@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EEAABF67-E390-486A-9ADE-436439337E7A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSharpLibrary</RootNamespace>
+    <AssemblyName>CSharpLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>dll\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>dll\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="office, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>dll\office.dll</HintPath>
+    </Reference>
+    <Reference Include="OWC10Chart">
+      <HintPath>dll\OWC10Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib1\Common类库\zjy.Common.csproj" />
+    <Content Include="Lib1\DotNet基础类大全\DotNet.Utilities.csproj" />
+    <Content Include="Lib1\DotNet基础类大全\ResourceManager\Sample.xml" />
+    <Content Include="Lib1\DotNet基础类大全\说明.txt" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Lib1\Common类库\BarCodeToHTML.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\CacheHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\Captcha.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\CNDate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\ConvertJson.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\CsvHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\EcanConvertToCh.cs" />
+    <Compile Include="Lib1\Common类库\Encrypt.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\ExcelHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\FileDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\FileManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\FileUp.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\FTPClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\FTPHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\FTPOperater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\GridViewHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\HTMLHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\ImageClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\ImageDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\ImageUpload.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\JsHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\LZWDecoder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\PDFOperation.cs" />
+    <Compile Include="Lib1\Common类库\PinYin.cs" />
+    <Compile Include="Lib1\Common类库\PSD2swfHelper.cs" />
+    <Compile Include="Lib1\Common类库\SegList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\SerializeHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\SessionHelper.cs" />
+    <Compile Include="Lib1\Common类库\SharpZip.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\SmtpServerHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\VideoConvert.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\XMLProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\Common类库\YZMHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\BindDataControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\ConvertHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\Cookie&amp;Session&amp;Cache\CacheHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\Cookie&amp;Session&amp;Cache\CookieHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\Cookie&amp;Session&amp;Cache\SessionHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\Cookie&amp;Session&amp;Cache\SessionHelper2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\CSV文件转换\CsvHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\DataCache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\DEncrypt\DEncrypt.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\DEncrypt\DESEncrypt.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\DEncrypt\Encrypt.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\DEncrypt\HashEncode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\DEncrypt\MySecurity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\DEncrypt\RSACryption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\FormulaExpress.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\FTP操作类\FTPClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\FTP操作类\FTPHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\FTP操作类\FTPOperater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\GridViewHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\IpHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\Json\ConvertJson.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\JS\JsHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\MediaHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\PageValidate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\PDF\PDFOperation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\PicDeal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\QueryString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\ResourceManager\AppMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\ResourceManager\ResourceManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\ResourceManager\ResourceManagerWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\ResourceManager\Resources.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\RMB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\StringPlus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\SysHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\Tools.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\UrlOper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\Utility.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\ValidateImg.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\WebSitePathHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\XML操作类\XmlHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\XML操作类\XMLProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\上传下载\DownLoadHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\上传下载\FileDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\上传下载\FileUp.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\上传下载\UpLoadFiles.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\分词辅助类\SegList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\压缩解压缩\SharpZip.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\图片\ImageClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\图片\ImageDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\图片\ImageUpload.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\字符串\StringHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\导出Excel\DataToExcel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\导出Excel\ExcelHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\导出Excel\ExportExcel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\导出Excel\GridViewExport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\序列化\Serialize.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\序列化\SerializeHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\弹出消息类\MessageBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\弹出消息类\ShowMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\文件操作类\DirFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\文件操作类\FileOperate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\文件操作类\INIFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\日历\CNDate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\时间操作类\DateFormat.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\时间操作类\TimeHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\时间操作类\TimeParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\条形码\BarCodeToHTML.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\正则表达式\RegexHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\汉字转拼音\EcanConvertToCh.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\汉字转拼音\PinYin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\视频转换类\VideoConvert.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\配置文件操作类\ConfigHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\随机数类\BaseRandom.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\随机数类\RandomHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\随机数类\RandomOperate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\页面辅助类\HTMLHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\页面辅助类\HttpProc.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\页面辅助类\JavaScriptPlus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\页面辅助类\PageHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lib1\DotNet基础类大全\验证码\YZMHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>16791</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
