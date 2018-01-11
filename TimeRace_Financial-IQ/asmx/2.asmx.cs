@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-
+using System.Collections;
 namespace TimeRace_Financial_IQ.asmx
 {
     /// <summary>
@@ -49,6 +49,29 @@ namespace TimeRace_Financial_IQ.asmx
             if (p2 == null)
                 return "nuL";
             return "t2" + p2[0];
+        }
+
+        //try to connect remote WebService 
+        [WebMethod(Description = "remote")]
+        public string remo()
+        {
+            string url = @"http://www.webxml.com.cn/WebServices/ValidateEmailWebService.asmx?op=ValidateEmailAddressPro";
+            string wsurl = @"http://www.webxml.com.cn/WebServices/ValidateEmailWebService.asmx";
+            string method = "ValidateEmailAddressPro";
+
+            wsurl = @"http://www.webxml.com.cn/webservices/qqOnlineWebService.asmx";//?op=qqCheckOnline";
+            method = "qqCheckOnline";
+            string[] strs = new string[] { "1", "2", "3" };
+            //转换字符为hash
+            Hashtable htParms = new Hashtable
+                {
+                    { "theEmail", "" },
+                    { "theEmailPort", "" },
+                    { "qqCode", "917546221" }
+                };
+            string r = Common.WdFuncWsCaller.SoapWebServiceString(wsurl, method, htParms);
+
+            return r != null ? r : "remm";
         }
     }
 }

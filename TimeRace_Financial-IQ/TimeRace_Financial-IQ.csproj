@@ -70,7 +70,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="#\.cs" />
     <Compile Include="asmx\1.ashx.cs">
       <DependentUpon>1.ashx</DependentUpon>
     </Compile>
@@ -107,6 +106,7 @@
     <Content Include="HandlerFactory.ashx" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="#\" />
     <Folder Include="demo\bak\" />
   </ItemGroup>
   <ItemGroup>

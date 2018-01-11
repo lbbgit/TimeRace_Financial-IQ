@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Data;
+using System.Text; 
+using System.Collections.Generic;
 using System.EnterpriseServices;
 //using System.ComponentModel;
 using System.Reflection;
 
+ 
+ 
 namespace n1
 {
     //Enum.GetValues(typeof(MemberLevel))
@@ -127,4 +131,51 @@ namespace test
             System.Console.Read();
         }
     }
+}
+
+/// <summary>
+/// C#泛型单例模式
+/// </summary> 
+namespace TSingleDistince
+{
+    
+    public class TSingleton<T> where T : class
+    {
+        static object SyncRoot = new object();
+        static T instance;
+        public static readonly Type[] EmptyTypes = new Type[0];
+        public static T Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (SyncRoot)
+                    {
+                        if (instance == null)
+                        {
+                            ConstructorInfo ci = typeof(T).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, EmptyTypes, null);
+                            if (ci == null) { throw new InvalidOperationException("class must contain a private constructor"); }
+                            instance = (T)ci.Invoke(null);  //instance = Activator.CreateInstance(typeof(T)) as T;
+                        }
+                    }
+                }
+                return instance;
+            }
+        }
+    }
+
+    public sealed class Singleton<T> where T : new()
+    {
+        public static T Instance
+        {
+            get { return SingletonCreator.instance; }
+        }
+        class SingletonCreator
+        {
+            internal static readonly T instance = new T();
+        }
+    }
+    //即可
+
 }
