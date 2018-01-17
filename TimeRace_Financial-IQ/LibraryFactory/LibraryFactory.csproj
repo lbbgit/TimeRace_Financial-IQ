@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="CodeFile1.cs" />
     <Compile Include="CodeFile2.cs" />
+    <Compile Include="CodeXml.cs" />
     <Compile Include="GetRequest.cs" />
     <Compile Include="LoadDll_ByPath.cs" />
     <Compile Include="Program.cs" />

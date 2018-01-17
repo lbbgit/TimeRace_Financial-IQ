@@ -9,10 +9,15 @@ namespace LibraryFactory
     {
         static void Main(string[] args)
         {
+            TryDic.t1();
+            string bd = getReuest.GetHttp("http://www.baidu.com/");
+            bd = getReuest.GetHttp("http://www.google.com/", true, "192.168.230.130", 1080);
             CodeFile3 cf3 = new CodeFile3();
             cf3.load(); return;
             CodeFile2 cf2 = new CodeFile2();
             cf2.load();
+
+            
         }
     }
 }
