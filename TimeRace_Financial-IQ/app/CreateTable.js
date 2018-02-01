@@ -63,6 +63,13 @@ var SetTable = function (name, tr, td, val) {
     GetTable(name, tr, td).text(val);
 }
 
+
+var SetTable_ByRow = function (name, tr, list) {
+    for (var i = 0; i < list.length; i++) {
+        GetTable(name, tr, i).text(list[i]);
+    }
+}
+
 var randomTable = function (name, num) {
     var num = num ? num : 1000;
     var tds = $("#" + name + " td,th");

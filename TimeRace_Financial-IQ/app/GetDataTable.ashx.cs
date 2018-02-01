@@ -30,10 +30,9 @@ namespace TimeRace_Financial_IQ.app
 
         DataTable ExecuteSql_GetDataTable(HttpContext context)
         {
-            string sql = context.Request.QueryString["sql"];
-            DataSet ds = new DataSet();
-
-            return ds.Tables[0];
+            string sql = context.Request.QueryString["sql"]; 
+            DataTable dt = DbTools.SqlServerHelper.GetDTable(sql);
+            return dt;
         }
 
         string DataTable2String(DataTable dt)

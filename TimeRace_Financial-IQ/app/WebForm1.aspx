@@ -11,7 +11,7 @@
             var ipt = document.getElementById("ipt");
             var sendXml = "<Execute Sql='" + ipt.value + "' TagName='Test' rtype='M' />";
             var url = GetPath(urlAshx) + "GetDataTable&sql=" + ipt.value;
-            debugger;
+            //debugger;
             test2(url);
             var result = XmlHttp.ExecuteUrl(url);
             //var result = XmlHttp.ExecuteUrl_WithXml(url, sendXml); 
@@ -33,6 +33,26 @@
             var index = href.match(/[^\/]\/[^\/]/).index + 1 ;
             return href.substr(0, index) + str;
         }
+        var DT2DataTable = function (response) {
+            var rows = response.split(';');
+            var cols = rows[0].split(',');
+            var rowscount = rows.length;
+            var colscount = cols.length;
+            //尾空检查
+            if (!rows[rowscount - 1])
+                rowscount -= 1;
+            if (!cols[colscount - 1])
+                colscount -= 1;
+
+            //debugger;
+            var newTab = createTable(rowscount + 1, colscount, "newTable");
+            $("#div-table").html(newTab);
+            //SetTable_ByRow("newTable", 0, cols);
+            for (var i = 0; i < rowscount; i++) {
+                var rowCells = rows[i].split(',');
+                SetTable_ByRow("newTable", i , rowCells);
+            }
+        }
 
         //xmlhttp not work,test this
         function test2(url, data) {
@@ -43,11 +63,12 @@
                 data: data, //{ 'username': username, 'password': password },
                 //dataType: 'json',
                 timeout: 50000,
-                success: function (response) {
-                    debugger;
-                    alert(response); 
-                    return response;
-                },
+                success: DT2DataTable,
+//                success: function (response) {
+//                    debugger;
+//                    alert(response); 
+//                    return response;
+//                },
                 error: function (err) {
                     alert("执行失败" + (err ? err : ''));
                 }
