@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text;
 using System.Data;
+using System.Collections;
+using System.Collections.Generic;
 public class test4
 {
     public static void t1()
@@ -19,5 +21,13 @@ public class test4
         table.WriteXml(@"d:\1.xml");
         ds.Tables.Add(table);
         ds.WriteXml(@"d:\2.xml");
+    }
+    public static Random rd = new Random();
+    public static string[] GetRandomList(int max, int length)
+    {
+        List<string> list = new List<string>();
+        while (length-- >= 0)//★wait for mend 
+            list.Add(rd.Next(max).ToString());
+        return list.ToArray();
     }
 }

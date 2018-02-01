@@ -70,6 +70,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="#\I_WearAble.cs" />
+    <Compile Include="#\StructWear.cs" />
+    <Compile Include="#\Telnet1.cs" />
     <Compile Include="asmx\1.ashx.cs">
       <DependentUpon>1.ashx</DependentUpon>
     </Compile>
@@ -106,7 +109,6 @@
     <Content Include="HandlerFactory.ashx" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="#\" />
     <Folder Include="demo\bak\" />
   </ItemGroup>
   <ItemGroup>

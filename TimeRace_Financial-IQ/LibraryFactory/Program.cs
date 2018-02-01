@@ -10,6 +10,7 @@ namespace LibraryFactory
         static void Main(string[] args)
         {
             test4.t1();
+            test4.GetRandomList(99,3);
             TryDic.t1();
             string bd = getReuest.GetHttp("http://www.baidu.com/");
             bd = getReuest.GetHttp("http://www.google.com/", true, "192.168.230.130", 1080);
