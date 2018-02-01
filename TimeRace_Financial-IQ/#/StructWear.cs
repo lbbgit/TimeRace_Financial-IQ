@@ -13,8 +13,8 @@ enum ItemType
 }
 interface I_justProperty
 {
-    string name;
-    int g, f, m, s, hp, hpT, mp, mpT, look;
+    //////string name;
+    //////int g, f, m, s, hp, hpT, mp, mpT, look;
 }
 struct justProperty : I_justProperty
 { 
@@ -24,7 +24,7 @@ struct equip : I_justProperty
 {
     //type
 
-    ItemType itemType = ItemType.equip;
+    ItemType itemType ;//= ItemType.equip;
     string equipType;
 }
 

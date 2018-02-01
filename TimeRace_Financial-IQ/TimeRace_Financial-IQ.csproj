@@ -51,6 +51,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\WebForm1.aspx" />
     <Content Include="asmx\1.asmx" />
     <Content Include="asmx\2.asmx" />
     <Content Include="default.htm" />
@@ -73,6 +74,14 @@
     <Compile Include="#\I_WearAble.cs" />
     <Compile Include="#\StructWear.cs" />
     <Compile Include="#\Telnet1.cs" />
+    <Compile Include="app\DbHelper.cs" />
+    <Compile Include="app\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="asmx\1.ashx.cs">
       <DependentUpon>1.ashx</DependentUpon>
     </Compile>

@@ -17,15 +17,15 @@ namespace TimeRace_Financial_IQ._
     //[soul]:key [soul spell:pos+FF+ |/_s ] ::gm_close_withNofight;;
     interface I_Property
     {
-        public int attack, defense;
+        //////public int attack, defense;
     }
 
     interface I_PropertyContainer
     {
-        public I_Property myProp;
-        public I_Property[] myEquip;
+        //////public I_Property myProp;
+        //////public I_Property[] myEquip;
 
-        public I_Property Prop{get;set;}
+        //////public I_Property Prop{get;set;}
         //public int attack, defense;
     }
 }

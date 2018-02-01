@@ -696,6 +696,8 @@ namespace DbTools
         /// </summary>
         public static readonly string CONNECTIONSTRING = "Data Source=" + ConfigurationManager.AppSettings["DataSource"] +  //要连接到Sql Server的实例名称
                                                          ";DataBase=" + ConfigurationManager.AppSettings["DataBase"] +      //要使用的数据库的名称
+                                                         ( Convert.ToString(ConfigurationManager.AppSettings["local"])       //是否开启本机认证
+                                                           =="1"  ? ";Integrated Security=True" : "" ) +
                                                          ";User ID=" + ConfigurationManager.AppSettings["UserID"] +         //登陆到数据库的用户名
                                                          ";Password=" + ConfigurationManager.AppSettings["Password"];       //登陆到数据库的密码
  
@@ -885,7 +887,33 @@ namespace DbTools
             connection.Close();
             return dt;
         }
- 
+
+        /// <summary>
+        /// 执行sql获得DataTable
+        /// </summary>
+        /// <param name="sql">sql</param> 
+        /// <param name="conn">SqlConnection连接</param>
+        /// <returns>返回DataTable</returns>
+        public static DataTable GetDTable(string sql)
+        {
+            SqlConnection conn = ReturnConn();
+            if (conn.State.Equals(ConnectionState.Closed))
+            {
+                conn.Open();
+            }
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+            cmd.CommandText = sql; 
+            SqlDataAdapter dtr = new SqlDataAdapter();
+            DataSet ds = new DataSet();
+            dtr.SelectCommand = cmd;
+            dtr.Fill(ds);
+            DataTable dt = ds.Tables[0];
+            conn.Close();
+            return dt;
+        }
+
         /// <summary>
         /// 执行存储过程的ExecuteNonQuery()方法
         /// </summary>
