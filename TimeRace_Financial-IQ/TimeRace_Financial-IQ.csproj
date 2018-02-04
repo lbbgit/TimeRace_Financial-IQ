@@ -53,16 +53,17 @@
   <ItemGroup>
     <Content Include="app\CreateTable.js" />
     <Content Include="app\WebForm1.aspx" />
+    <Content Include="app\SqlExecute.aspx" />
     <Content Include="asmx\1.asmx" />
     <Content Include="asmx\2.asmx" />
     <Content Include="default.htm" />
-    <Content Include="demo\demo1.asmx" />
     <Content Include="demo\PartSplitter.htm" />
     <Content Include="Image\D.png" />
     <Content Include="Image\hls.jpg" />
     <Content Include="Image\minhead.jpg" />
     <Content Include="Js\Common.js" />
     <Content Include="Js\jquery-1.7.1.min.js" />
+    <Content Include="Sql\GSql.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -86,6 +87,13 @@
     <Compile Include="app\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="app\SqlExecute.aspx.cs">
+      <DependentUpon>SqlExecute.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\SqlExecute.aspx.designer.cs">
+      <DependentUpon>SqlExecute.aspx</DependentUpon>
+    </Compile>
     <Compile Include="asmx\1.ashx.cs">
       <DependentUpon>1.ashx</DependentUpon>
     </Compile>
@@ -104,10 +112,6 @@
     <Compile Include="demo\DataAccess.cs" />
     <Compile Include="demo\DataTableTools.cs" />
     <Compile Include="demo\DBHelper.cs" />
-    <Compile Include="demo\demo1.asmx.cs">
-      <DependentUpon>demo1.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="demo\FolderUnNull.cs" />
     <Compile Include="demo\DllInject.cs" />
     <Compile Include="demo\linq2.cs" />

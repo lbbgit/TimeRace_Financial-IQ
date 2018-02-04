@@ -690,17 +690,28 @@ namespace DbTools
         /// 禁止实例化
         /// </summary>
         private SqlServerHelper() { }
- 
-        /// <summary>
-        /// 设置SqlServer的连接字符串
-        /// </summary>
-        public static readonly string CONNECTIONSTRING = "Data Source=" + ConfigurationManager.AppSettings["DataSource"] +  //要连接到Sql Server的实例名称
-                                                         ";DataBase=" + ConfigurationManager.AppSettings["DataBase"] +      //要使用的数据库的名称
-                                                         ( Convert.ToString(ConfigurationManager.AppSettings["local"])       //是否开启本机认证
-                                                           =="1"  ? ";Integrated Security=True" : "" ) +
-                                                         ";User ID=" + ConfigurationManager.AppSettings["UserID"] +         //登陆到数据库的用户名
-                                                         ";Password=" + ConfigurationManager.AppSettings["Password"];       //登陆到数据库的密码
- 
+
+        #region 连接字符串配置
+
+        private static readonly string CONNECTIONSTRING_key = ConfigurationManager.AppSettings["ConnectionKey"];
+        
+        private static readonly string CONNECTIONSTRING_SqlServer = string.Empty +
+            "Data Source=" + ConfigurationManager.AppSettings["DataSource"] +  //要连接到Sql Server的实例名称
+            ";DataBase=" + ConfigurationManager.AppSettings["DataBase"] +      //要使用的数据库的名称
+                (Convert.ToString(ConfigurationManager.AppSettings["local"])       //是否开启本机认证
+                    == "1" ? ";Integrated Security=True" : "") +
+            ";User ID=" + ConfigurationManager.AppSettings["UserID"] +         //登陆到数据库的用户名
+            ";Password=" + ConfigurationManager.AppSettings["Password"];       //登陆到数据库的密码
+
+        private static readonly string _CONNECTIONSTRING = 
+            string.IsNullOrWhiteSpace(CONNECTIONSTRING_key) ?
+            CONNECTIONSTRING_SqlServer : ConfigurationManager.AppSettings[CONNECTIONSTRING_key];
+        #endregion
+        
+        public static string CONNECTIONSTRING {
+             get { return _CONNECTIONSTRING; } 
+         }
+
         /// <summary>
         /// 获取一个连接
         /// </summary>
