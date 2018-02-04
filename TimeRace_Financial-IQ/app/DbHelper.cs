@@ -1011,5 +1011,46 @@ namespace DbTools
             conn.Close();
             return Result;
         }
+
+        public sqlType GetSqlType(string sql)
+        {
+            IDictionary<string, sqlType> key_type = new Dictionary<string, sqlType>
+            {
+                {"update",sqlType.Update},
+                {"insert",sqlType.Add},
+                {"delete",sqlType.Delete},
+                {"select",sqlType.View} //the item“select”should be last ，for maybe the othertype's dataSource
+            };
+            foreach (KeyValuePair<string, sqlType> _key_type in key_type)
+            {
+                if(sql.IndexOf(_key_type.Key, StringComparison.OrdinalIgnoreCase)>=0)
+                    return _key_type.Value; 
+            }
+            return sqlType.Execute;
+            
+            #region deleted code
+            //if (string.Compare(sql, "update ", true) >= 0)
+            //    return sqlType.Update;
+            //if (string.Compare(sql, "insert ", true) >= 0)
+            //    return sqlType.Add;
+            //if (string.Compare(sql, "delete ", true) >= 0)
+            //    return sqlType.Delete;
+            ////for update and insert's data maybe came from "select from" ,so "Select" should judege after update 、delete and insert  
+            //if (string.Compare(sql, "select ", true) >= 0)
+            //    return sqlType.View;
+
+            //return sqlType.Execute;
+            #endregion 
+        }
+
+        public static bool StringContains(string str1,string str2)
+        {
+            int i= str1.IndexOf(str2, StringComparison.OrdinalIgnoreCase);
+            return i >= 0;
+        }
+        enum sqlType
+        {
+            View,Add,Delete,Update,Execute
+        }
     }
 }
