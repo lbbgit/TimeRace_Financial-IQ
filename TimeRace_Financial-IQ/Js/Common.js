@@ -62,3 +62,5 @@ XmlHttp = {
     }
 
 }
+
+var _立方根 = Math.cbrt(5000000,3);
