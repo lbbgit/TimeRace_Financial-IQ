@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Js/jquery-1.7.1.min.js" type="text/javascript"></script>
+      <script language="javascript" type="text/javascript">
+          function login() {
+              debugger;
+              $.ajax({
+                  url: '/GetData.ashx?action=test1&ac=NoneTest&1=1',
+                  type: 'POST',
+                  data: { 'username': $("#txtUsername").val(), 'password': $("#txtPassword").val() },
+                  dataType: 'json',
+                  timeout: 50000,
+                  //contentType: 'application/json;charset=utf-8',  
+                  success: function (response) { 
+                      alert(response.message);
+                      alert(response.responseText);
+                  },
+                  error: function (err) {
+                      debugger;
+                      alert("执行失败" + err +',内容为'+ err.responseText);
+                  } 
+              });
+          };
+
+          //setTimeout(login, 1000);  
+    </script> 
+    <script>
+        //创建XmlHttpRequest对象
+        function create() {
+            var xmlHttp = null;
+            try {
+                if (window.ActiveXObject)
+                    xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                else if (window.XMLHttpRequest)
+                    xmlHttp = new XMLHttpRequest();
+            } catch (e) {
+            }
+            return xmlHttp;
+        }
+
+        //传入XML进行逻辑处理的操作 
+        function ExecuteXmlUrl(sendXml, url) {
+            var xmlHttp = Request2({ url: url, data: sendXml });
+            return xmlHttp.responseText;
+        }
+
+
+        //封装XmlHttp请求支持POST,GET方法；同步与异步调用 
+        function Request(method, requestUrl, sendData, callback) {
+            return Request2({ url: requestUrl, data: sendData, type: method, success: callback });
+        }
+
+        function Request2(settings) { 
+            if (!settings || !settings["url"]) {
+                alert(" 请求中的 url 不能为空。");
+                return null;
+            }
+            url = settings["url"];
+            
+            //默认设置
+            var realSettings = {
+                type: "post", //以 post 方式进行请求
+                async: false, //同步获取数据
+                processData: false, //防止通过data选项传递进来的数据时，对数据格式进行转换。如：data 为 ｛A:"aa",B:"bb"｝ 若 processData 为 true 时，则会转化为url?A=aa&B=bb
+                contentType: "text/xml",
+                dataType: "txt/html",
+                dataFilter: FilterReceiveData
+            }
+
+            //传入的设置来设计选项。默认中不存在的则增加，存在的则修改；传入设置中没有的采用默认设置。
+            if (settings) {
+                for (var item in settings) {
+                    if (settings[item])
+                        realSettings[item] = settings[item];
+                }
+            }
+            var xmlHttpResponse = $.ajax(realSettings);
+            return realSettings["async"] ? null : xmlHttpResponse;
+        }
+
+    </script>
+    <style>
+     .icon
+     {
+         border:1px solid green;
+         display:contents;
+     }
+     .icon>image,icon>img
+     { 
+         width:40px;height:40px;   
+     }
+     image
+     {
+         position:0px,0px;
+     }
+     image:hover
+     {
+         position:4px,4px;
+     }
+    </style>
+</head>
+<body>
+    <a  onclick="login();" >test1</a>
+    
+    <div id="div1" class="icon">
+        <image src="/images/icon/add.png">新建</image>
+    </div>
+    <div id="div2" class="icon">
+        <image src="/images/icon/dele.png">删除记录</image>
+    </div>
+    <div id="div3" class="icon">
+        <image src="/images/icon/view.png">查</image>
+    </div>
+    <div id="div4" class="icon">
+        <img src="/images/icon/view.png"  title="testtitle" ></img>检查
+    </div>
+</body>
+</html>
