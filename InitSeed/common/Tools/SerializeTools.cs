@@ -13,7 +13,7 @@ namespace InitSeed.Common.Tools
     /// <summary>
     /// 序列化,需要序列化的类定要使用[Serializable]进行标记.
     /// </summary>
-    public class Serialize
+    public class SerializeTools
     {
         /// <summary>
         /// object的序列化 
