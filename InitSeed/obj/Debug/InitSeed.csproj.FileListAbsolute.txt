@@ -1,0 +1,9 @@
+J:\Github\TimeRace_Financial-IQ\InitSeed\obj\Debug\InitSeed.csprojResolveAssemblyReference.cache
+J:\Github\TimeRace_Financial-IQ\InitSeed\bin\InitSeed.dll
+J:\Github\TimeRace_Financial-IQ\InitSeed\bin\InitSeed.pdb
+J:\Github\TimeRace_Financial-IQ\InitSeed\bin\DDTek.Oracle.dll
+J:\Github\TimeRace_Financial-IQ\InitSeed\bin\Newtonsoft.Json.dll
+J:\Github\TimeRace_Financial-IQ\InitSeed\bin\Newtonsoft.Json.pdb
+J:\Github\TimeRace_Financial-IQ\InitSeed\bin\Newtonsoft.Json.xml
+J:\Github\TimeRace_Financial-IQ\InitSeed\obj\Debug\InitSeed.dll
+J:\Github\TimeRace_Financial-IQ\InitSeed\obj\Debug\InitSeed.pdb

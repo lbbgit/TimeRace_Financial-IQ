@@ -36,6 +36,10 @@
       <HintPath>Dll\DDTek.Oracle.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.0.3.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -58,11 +62,14 @@
     <Content Include="Dll\Oracle.ManagedDataAccess.dll" />
     <Content Include="images\sort_asc.png" />
     <Content Include="images\sort_both.png" />
+    <Content Include="Js\%24_1.js" />
+    <Content Include="Js\CreateTable.js" />
     <Content Include="Js\editer\dataTables.editor.min.js" />
     <Content Include="Js\editer\editor.dataTables.min.css" />
     <Content Include="Js\jquery-1.7.1.min.js" />
     <Content Include="Js\jquery.dataTables.min.css" />
     <Content Include="Js\jquery.dataTables.min.js" />
+    <Content Include="Js\%24_0.js" />
     <Content Include="ls.htm" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -73,17 +80,32 @@
     </Content>
     <Content Include="datatable.htm" />
     <Content Include="datatableCDN.htm" />
+    <Content Include="createDT.htm" />
+    <Content Include="seedRoot.htm" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Model\ModelHelper.cs" />
+    <Compile Include="Common\Tools\DataTableTools.cs" />
+    <Compile Include="Common\Tools\JsonTools.cs" />
+    <Compile Include="Common\Tools\RandomTools.cs" />
+    <Compile Include="Common\Tools\SerializeTools.cs" />
     <Compile Include="GetData.ashx.cs">
       <DependentUpon>GetData.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestAshx.ashx.cs">
+      <DependentUpon>TestAshx.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="GetData.ashx" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="TestAshx.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Common\Far.md" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

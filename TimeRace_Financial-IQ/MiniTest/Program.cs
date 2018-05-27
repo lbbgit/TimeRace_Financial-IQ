@@ -9,11 +9,16 @@ namespace MiniTest
     {
         static void Main(string[] args)
         {
+            Dt_Str.d1();
+        }
+
+        static void test1()
+        {
             int i = 2555;
             i = string.Compare(" sElect", "select");
-            i = string.Compare(" sElect", "select",true);
+            i = string.Compare(" sElect", "select", true);
             i = string.Compare("sElect", "select");
-            i = string.Compare("sElect", "seLEct",true);
+            i = string.Compare("sElect", "seLEct", true);
             Console.WriteLine(i);
 
             "sEleCt".IndexOf("select2", StringComparison.OrdinalIgnoreCase);

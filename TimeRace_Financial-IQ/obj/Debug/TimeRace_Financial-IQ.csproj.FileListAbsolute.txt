@@ -1,0 +1,4 @@
+J:\Github\TimeRace_Financial-IQ\TimeRace_Financial-IQ\bin\TimeRace_Financial-IQ.dll
+J:\Github\TimeRace_Financial-IQ\TimeRace_Financial-IQ\bin\TimeRace_Financial-IQ.pdb
+J:\Github\TimeRace_Financial-IQ\TimeRace_Financial-IQ\obj\Debug\TimeRace_Financial-IQ.dll
+J:\Github\TimeRace_Financial-IQ\TimeRace_Financial-IQ\obj\Debug\TimeRace_Financial-IQ.pdb

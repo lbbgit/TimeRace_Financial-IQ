@@ -1,0 +1,5 @@
+J:\Github\TimeRace_Financial-IQ\TimeRace_Financial-IQ\MiniTest\bin\Debug\MiniTest.exe
+J:\Github\TimeRace_Financial-IQ\TimeRace_Financial-IQ\MiniTest\bin\Debug\MiniTest.pdb
+J:\Github\TimeRace_Financial-IQ\TimeRace_Financial-IQ\MiniTest\obj\x86\Debug\MiniTest.exe
+J:\Github\TimeRace_Financial-IQ\TimeRace_Financial-IQ\MiniTest\obj\x86\Debug\MiniTest.pdb
+J:\Github\TimeRace_Financial-IQ\TimeRace_Financial-IQ\MiniTest\obj\x86\Debug\MiniTest.csprojResolveAssemblyReference.cache
