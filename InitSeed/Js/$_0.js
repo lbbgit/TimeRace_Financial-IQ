@@ -1,4 +1,4 @@
-﻿
+﻿//测试各平台兼容性(主打FFX Chrome42.0)
 $.BasePath = '/js/NS/'; //$.n1.n2.js
 $.NS = { nspaces: [] };
 $.NS.register = function (ns) {
@@ -198,10 +198,11 @@ $.UpdateUrlParameter = function (url, p_name, p_value) {
 
 
 $.NS.register('$.Common');
-$.NS.register('$.MapleTr.Common');
+$.NS.register('$.Tools.Common');
 
-//支持json $.SetCookie("AAA", "[{id:3,name:'zhu18',theme:'blue'},{id:4,name:'zjj',theme:'red'}]");
-// 写Cookie 默认保存365天
+//支持json 
+//$.SetCookie("AAA", "[{id:230,name:'sbf',theme:'green'},{id:240,name:'zlh',theme:'blue'}]");
+// 写Cookie 默认保存1 year 
 $.SetCookie = function (name, value, days) {
     var Days = days || 365;
     var exp = new Date();
@@ -255,7 +256,7 @@ $.SelFolder = function (obj) {
     if (obj && obj.IsSelFolder === false) {
         width = "800px"
     }
-    var result = window.showModalDialog("/ChooseFilePage.htm", obj, "dialogHeight=550px; dialogWidth=" + width + ";center=1;scroll=0;resizable=no;help=0;status=0");
+    var result = window.showModalDialog("/FilePageChoosePage.htm", obj, "dialogHeight=550px; dialogWidth=" + width + ";center=1;scroll=0;resizable=no;help=0;status=0");
     return result;
 }
 
@@ -408,3 +409,4 @@ $.HTMLDecode = function (text) {
 
     return text;
 }
+

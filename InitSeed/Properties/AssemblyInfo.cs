@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下特性集 
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("TimeRace_Financial_IQ")]
+[assembly: AssemblyTitle("InitSeed")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("TimeRace_Financial_IQ")]
+[assembly: AssemblyProduct("InitSeed")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("40617f77-1e57-455b-a521-a5bca1de4638")]
+[assembly: Guid("ce486a5c-a225-4ec9-a226-6a7d2ebe04ab")]
 
 // 程序集的版本信息由下列四个值组成:
 //

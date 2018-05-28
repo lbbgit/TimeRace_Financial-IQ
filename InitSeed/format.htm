@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Js/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="Js/$_0.js" type="text/javascript"></script> 
+    <script src="Js/format.js" type="text/javascript"></script> 
+    <!--<script src="Js/CreateTable.js" type="text/javascript"></script>-->
+    <script language="javascript" type="text/javascript">
+        
+    </script>
+</head>
+<body>
+  DelStrDom:<input id="ipt_Del" />
+  <a  onclick="$('#txts_Out').val(Format.DelStr($('#ipt_Del').val(),$('#txts_In').val()));" >Del_String</a>
+  <a  onclick="Format.DelDom();" ></a>
+ 
+   <textarea id="txts_In" cols="20" rows="20">
+
+   </textarea>
+    <textarea id="txts_Out" cols="20" rows="20">
+
+   </textarea>
+</body>
+</html>

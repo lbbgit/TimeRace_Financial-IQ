@@ -36,8 +36,7 @@
       <HintPath>Dll\DDTek.Oracle.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=4.0.3.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Newtonsoft.Json">
       <HintPath>Dll\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
@@ -57,20 +56,58 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="createDT.htm" />
     <Content Include="default.htm" />
     <Content Include="Dll\DDTek.Oracle.dll" />
     <Content Include="Dll\Oracle.ManagedDataAccess.dll" />
+    <Content Include="images\Icon\Add.png" />
+    <Content Include="images\Icon\Base.png" />
+    <Content Include="images\Icon\Check.png" />
+    <Content Include="images\Icon\Close.png" />
+    <Content Include="images\Icon\Copy.png" />
+    <Content Include="images\Icon\Cut.png" />
+    <Content Include="images\Icon\Del.png" />
+    <Content Include="images\Icon\Dele.png" />
+    <Content Include="images\Icon\Delete.png" />
+    <Content Include="images\Icon\Edit.png" />
+    <Content Include="images\Icon\Enter.png" />
+    <Content Include="images\Icon\Error.png" />
+    <Content Include="images\Icon\Info.png" />
+    <Content Include="images\Icon\Info2.png" />
+    <Content Include="images\Icon\Lock.png" />
+    <Content Include="images\Icon\People.png" />
+    <Content Include="images\Icon\PeopleHide.png" />
+    <Content Include="images\Icon\Peoples.png" />
+    <Content Include="images\Icon\PeopleSetting.png" />
+    <Content Include="images\Icon\Print.png" />
+    <Content Include="images\Icon\Refresh.png" />
+    <Content Include="images\Icon\Refresh2.png" />
+    <Content Include="images\Icon\Return.png" />
+    <Content Include="images\Icon\Save.png" />
+    <Content Include="images\Icon\Search.png" />
+    <Content Include="images\Icon\Set.png" />
+    <Content Include="images\Icon\Setting.png" />
+    <Content Include="images\Icon\Sign.png" />
+    <Content Include="images\Icon\Tree.png" />
+    <Content Include="images\Icon\View %282%29.png" />
+    <Content Include="images\Icon\View.png" />
+    <Content Include="images\Icon\Write.png" />
     <Content Include="images\sort_asc.png" />
     <Content Include="images\sort_both.png" />
+    <Content Include="Js\%24_0.js" />
     <Content Include="Js\%24_1.js" />
+    <Content Include="Js\1.js" />
     <Content Include="Js\CreateTable.js" />
     <Content Include="Js\editer\dataTables.editor.min.js" />
     <Content Include="Js\editer\editor.dataTables.min.css" />
     <Content Include="Js\jquery-1.7.1.min.js" />
     <Content Include="Js\jquery.dataTables.min.css" />
     <Content Include="Js\jquery.dataTables.min.js" />
-    <Content Include="Js\%24_0.js" />
+    <Content Include="Js\Setting.js" />
+    <Content Include="Js\format.js" />
+    <Content Include="Js\proto.js" />
     <Content Include="ls.htm" />
+    <Content Include="seedRoot.htm" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -80,10 +117,18 @@
     </Content>
     <Content Include="datatable.htm" />
     <Content Include="datatableCDN.htm" />
-    <Content Include="createDT.htm" />
-    <Content Include="seedRoot.htm" />
+    <Content Include="format.htm" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ashx\CFormat.ashx.cs">
+      <DependentUpon>CFormat.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\GetCSFromModel.ashx.cs">
+      <DependentUpon>GetCSFromModel.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\LoadSetting.ashx.cs">
+      <DependentUpon>LoadSetting.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Common\Model\ModelHelper.cs" />
     <Compile Include="Common\Tools\DataTableTools.cs" />
     <Compile Include="Common\Tools\JsonTools.cs" />
@@ -101,10 +146,19 @@
     <Content Include="GetData.ashx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ashx\LoadSetting.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ashx\GetCSFromModel.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Js\lsFile.js" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="TestAshx.ashx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Common\Far.md" />
+    <Content Include="ashx\CFormat.ashx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
