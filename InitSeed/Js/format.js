@@ -45,11 +45,35 @@ var Format = {
 
 
 
+function Fun2Str(_function) {
+    var a = _function.toString();
+    var left = a.indexOf("/*");
+    a = a.substr(left + 2);
+    var right = a.indexOf("*/");
+    a = a.substr(0, right);
+    return a;
+}
+var fun2Str = fun2str = Fun2Str;
 
+var ___f = function () {
+    /*
+    Id
+    Name
+    */
+};
+var charEnter = charNewLine = Fun2Str(___f)[0]; //换行符   /\n/g
+ 
 
+//按换行符分隔
+String.prototype.SplitRows = String.prototype.splitRows = function () { 
+    return this.split(/\n/g);
+};
 
-
-
+String.prototype.ReplaceNewRow = String.prototype.replaceNewRow = function (newstr) {
+    if(!newstr)
+        newstr='<br>';
+    return this..replace(/\n/g, newstr);
+}; 
 
 
 

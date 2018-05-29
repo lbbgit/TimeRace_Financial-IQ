@@ -194,3 +194,90 @@ Date.prototype.Format = function (date, type) {
 
     return dateFormat;
 }
+
+Date.prototype.add = function (strInterval, Number) {
+    var dtTmp = this;
+    switch (strInterval) {
+        case 's' :
+            return new Date(Date.parse(dtTmp) + (1000 * Number));
+        case 'n' :
+            return new Date(Date.parse(dtTmp) + (60000 * Number));
+        case 'h' :
+            return new Date(Date.parse(dtTmp) + (3600000 * Number));
+        case 'd' :
+            return new Date(Date.parse(dtTmp) + (86400000 * Number));
+        case 'w' :
+            return new Date(Date.parse(dtTmp) + ((86400000 * 7) * Number));
+        case 'q' :
+            return new Date(dtTmp.getFullYear(), (dtTmp.getMonth()) + Number * 3, dtTmp.getDate(), dtTmp.getHours(), dtTmp.getMinutes(), dtTmp.getSeconds());
+        case 'm' :
+            return new Date(dtTmp.getFullYear(), (dtTmp.getMonth()) + Number, dtTmp.getDate(), dtTmp.getHours(), dtTmp.getMinutes(), dtTmp.getSeconds());
+        case 'y' :
+            return new Date((dtTmp.getFullYear() + Number), dtTmp.getMonth(), dtTmp.getDate(), dtTmp.getHours(), dtTmp.getMinutes(), dtTmp.getSeconds());
+    }
+}
+
+
+function extend_base(){ 
+    if(!String.prototype.format ){
+        String.prototype.format = function() {
+            var e = arguments;
+            return this.replace(/{(\d+)}/g,function(t, n) {
+                return typeof e[n] != "undefined" ? e[n] : t
+            })
+        };
+    }
+    
+    if (!Array.prototype.forEach && typeof Array.prototype.forEach !== "function") {
+        Array.prototype.forEach = function(callback, context) {
+           // 遍历数组,在每一项上调用回调函数，这里使用原生方法验证数组。
+           if (Object.prototype.toString.call(this) === "[object Array]") {
+               var i,len;
+               //遍历该数组所有的元素
+               for (i = 0, len = this.length; i < len; i++) {
+                   if (typeof callback === "function"  && Object.prototype.hasOwnProperty.call(this, i)) {
+                       if (callback.call(context, this[i], i, this) === false) {
+                           break; // or return;
+                       }
+                   }
+               }
+           }
+        };
+    }
+    
+    if(!String.prototype.format ){
+        Array.isArray = function(obj){
+            return obj.constructor.toString().indexOf('Array') != -1;
+        }
+    }
+
+
+    //待补充 ...
+    
+}();//run it
+ 
+ // ------------------------ 工具包---------------------------------//
+var utils = {
+            center : function(dom){
+                dom.style.position = 'absolute';
+                dom.style.top = '50%';
+                dom.style.left = '50%';
+                dom.style['margin-top'] = - dom.offsetHeight / 2 + 'px';
+                dom.style['margin-left'] = - dom.offsetWidth / 2 + 'px';
+            },
+        
+            /** dom相关 * */
+            isDom : ( typeof HTMLElement === 'object' ) ?
+                function(obj){
+                    return obj instanceof HTMLElement;
+                } :
+                function(obj){
+                    return obj && typeof obj === 'object' && obj.nodeType === 1 && typeof obj.nodeName === 'string';
+                } ,
+             
+            /** 数组相关 * */
+            isArray : function(obj){
+                return obj.constructor.toString().indexOf('Array') != -1;
+            }
+            
+        } 
