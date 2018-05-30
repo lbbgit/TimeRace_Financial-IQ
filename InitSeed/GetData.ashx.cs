@@ -16,7 +16,7 @@ namespace InitSeed
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
-            context.Response.Write("Hello World");
+            //context.Response.Write("Hello World");
 
             string strAction = context.Request["action"];
             string result = "";
@@ -25,8 +25,13 @@ namespace InitSeed
                 case "test1":
                     result = GetTable();
                     break;
+
+                case "GetHtmls":
+                    result = GetHtmls(context);
+                    break;
             }
-            context.Response.Write(strAction + "|" + result);
+            //context.Response.Write(strAction + "|" + result);
+            context.Response.Write(result);
         }
 
         private string GetTable()
@@ -46,6 +51,21 @@ namespace InitSeed
             return result;
         }
 
+        private string GetHtmls(HttpContext context)
+        {
+            string root = context.Server.MapPath("/");
+            string[] files=System.IO.Directory.GetFiles(root,"*.htm*",System.IO.SearchOption.AllDirectories);
+
+            StringBuilder sb = new StringBuilder();
+            string t;
+            int begin=root.Length;
+            foreach (string file in files)
+            {
+                t = file.Substring(begin).Replace("\\","/");
+                sb.Append('/').Append(t).Append("|");
+            }
+            return sb.ToString(0, sb.Length - 1);
+        }
         public bool IsReusable
         {
             get
