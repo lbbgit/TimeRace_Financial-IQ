@@ -15,6 +15,10 @@ namespace ToolApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            Application.Run(new  Default());
+            return;
+            Application.Run(new FServer());
             Application.Run(new 多人聊天程序Client端.Form2());
             //Application.Run(new TxtCombine());
 

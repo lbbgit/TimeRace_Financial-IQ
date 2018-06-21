@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Default.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Default.Designer.cs">
+      <DependentUpon>Default.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,12 @@
     </Compile>
     <Compile Include="FormFormat.Designer.cs">
       <DependentUpon>FormFormat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FServer.Designer.cs">
+      <DependentUpon>FServer.cs</DependentUpon>
     </Compile>
     <Compile Include="KeyGenerator.cs">
       <SubType>Form</SubType>
@@ -84,6 +96,18 @@
     <Compile Include="_Xml.Designer.cs">
       <DependentUpon>_Xml.cs</DependentUpon>
     </Compile>
+    <Compile Include="FClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FClient.Designer.cs">
+      <DependentUpon>FClient.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Default.resx">
+      <DependentUpon>Default.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FServer.resx">
+      <DependentUpon>FServer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KeyGenerator.resx">
       <DependentUpon>KeyGenerator.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +122,9 @@
     </Compile>
     <EmbeddedResource Include="TxtCombine.resx">
       <DependentUpon>TxtCombine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FClient.resx">
+      <DependentUpon>FClient.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
