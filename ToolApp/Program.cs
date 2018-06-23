@@ -16,6 +16,9 @@ namespace ToolApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            _Xml.testXml2Dt();
+            TestTemperature.RenameByNum();
+
             Application.Run(new  Default());
             return;
             Application.Run(new FServer());

@@ -61,5 +61,112 @@ namespace ToolApp
             aaaaa = bbbb;
 
         }
+
+
+        private string ConvertDataTableToXML(DataTable xmlDS)
+        {
+            MemoryStream stream = null;
+            XmlTextWriter writer = null;
+            try
+            {
+                stream = new MemoryStream();
+                writer = new XmlTextWriter(stream, Encoding.Default);
+                xmlDS.WriteXml(writer);
+                int count = (int)stream.Length;
+                byte[] arr = new byte[count];
+                stream.Seek(0, SeekOrigin.Begin);
+                stream.Read(arr, 0, count);
+                UTF8Encoding utf = new UTF8Encoding();
+                return utf.GetString(arr).Trim();
+            }
+            catch
+            {
+                return String.Empty;
+            }
+            finally
+            {
+                if (writer != null) writer.Close();
+            }
+        }
+
+        public static void testXml2Dt()
+        {
+            string xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
++ "<InsertInfo>"
++ "<TuHao>产品图号</TuHao>"
++ "<DaiHao>产品代号</DaiHao>"
++ "</InsertInfo>";
+            DataSet ds = ConvertXMLToDataSet(xml);
+
+            //2
+            xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
++ "<rootNd>"
++ "<InsertInfo>"
++ "<TuHao>产品图号</TuHao>"
++ "<DaiHao>产品代号</DaiHao>"
++ "</InsertInfo>"
+ + "<InsertInfo>"
+ + "<TuHao>产品图号2</TuHao>"
+ + "<DaiHao>产品代号2</DaiHao>"
+ + "</InsertInfo>"
++ "</rootNd>";
+            ds = ConvertXMLToDataSet(xml);
+
+            //3
+            xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
++ "<rootNd>"
++ "<InsertInfo>"
++ "<TuHao>产品图号</TuHao>"
++ "<DaiHao>产品代号</DaiHao>"
++ "<UserList><i>i1</i><i>i2</i></UserList>"
++ "</InsertInfo>"
++ "<InsertInfo>"
++ "<TuHao>产品图号2</TuHao>"
++ "<DaiHao>产品代号2</DaiHao>"
++ "</InsertInfo>"
++ "</rootNd>";
+            ds = ConvertXMLToDataSet(xml);
+
+            //3
+            xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
++ "<rootNd>"
++ "<InsertInfo>"
++ "<TuHao>产品图号</TuHao>"
++ "<DaiHao>产品代号</DaiHao>"
++ "<UserList><i>i1</i><i>i2</i></UserList>"
++ "</InsertInfo>"
++ "<InsertInfo>"
++ "<TuHao>产品图号2</TuHao>"
++ "<DaiHao>产品代号2</DaiHao>"
++ "<line2>linsl2222</line2>"
++ "</InsertInfo>"
++ "</rootNd>";
+            ds = ConvertXMLToDataSet(xml);
+
+
+        }
+        public static DataSet ConvertXMLToDataSet(string xmlData)
+        {
+            StringReader stream = null;
+            XmlTextReader reader = null;
+            try
+            {
+                DataSet xmlDS = new DataSet();
+                stream = new StringReader(xmlData);
+                reader = new XmlTextReader(stream);
+                xmlDS.ReadXml(reader);
+                return xmlDS;
+            }
+            catch (Exception ex)
+            {
+                string strTest = ex.Message;
+                return null;
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+            }
+        }
     }
 }

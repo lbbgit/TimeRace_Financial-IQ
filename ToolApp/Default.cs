@@ -81,6 +81,8 @@ namespace ToolApp
             }catch(Exception){}
 
             return;
+            //由于要用到dynamic ，需要把target 改为4.0 ，如果编译时出现“找不到编译动态表达式所需的一个或多个类型。
+            //是否缺少引用?”的错误，是因为缺少一个引用，在项目里引用Miscorsoft.CSharp类库，添加后就能编译成功。
 
             Assembly assembly = Assembly.GetExecutingAssembly(); // 获取当前程序集 
             dynamic obj = assembly.CreateInstance("类的完全限定名（即包括命名空间）"); // 创建类的实例，返回为 object 类型，需要强制类型转换
